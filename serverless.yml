@@ -11,8 +11,19 @@ provider:
   lambdaHashingVersion: 20201221
 
 functions:
-  hello:
-    handler: handler.hello
+  notification:
+    handler: handler.notification
+    events:
+      - httpApi:
+          method: GET
+          path: /notification
+  
+  eventsub_callback:
+    handler: handler.eventsub_callback
+    events:
+      - httpApi:
+          method: POST
+          path: /eventsub/callback
 
 plugins:
   - serverless-offline

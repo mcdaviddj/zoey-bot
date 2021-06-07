@@ -1,5 +1,10 @@
 {
   "devDependencies": {
     "serverless-offline": "^7.0.0"
-  }
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/serverless offline",
+    "debug": "export SLS_DEBUG=* && node --inspect $(npm bin)/sls offline start",
+    "test": "mocha"
+    }
 }
